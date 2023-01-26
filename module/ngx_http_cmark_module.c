@@ -116,12 +116,7 @@ static ngx_int_t ngx_http_cmark_handler(ngx_http_request_t *r) {
     size_t header_size = 0;
     size_t footer_size = 0;
 
-    u_char *p;
-    size_t root;
-
     ngx_str_t fn = ngx_null_string;
-    p = ngx_http_map_uri_to_path(r, &fn, &root, 0);
-    fn.len = ngx_strlen(fn.data);
 
     if (cf->header.len != 0) {
 
@@ -221,7 +216,7 @@ static ngx_int_t ngx_http_cmark_handler(ngx_http_request_t *r) {
 
     cmark_mem *mem = cmark_get_default_mem_allocator();
 
-    u_char *html = (u_char *) cmark_render_html_with_mem(document, options, parser->syntax_extensions, mem);
+    u_char *html = (u_char *) cmark_render_html_with_mem(document, options, cmark_parser_get_syntax_extensions(parser), mem);
 
     size_t  bufpos = 0;
     size_t  html_size  = ngx_strlen(html);
