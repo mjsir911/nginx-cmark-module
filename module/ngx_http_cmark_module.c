@@ -1,10 +1,8 @@
 #include "ngx_http_cmark_module.h"
 
-#include "cmark-gfm.h"
-#include "cmark-gfm-core-extensions.h"
-#include "cmark-gfm-extension_api.h"
-#include "parser.h"
-#include "registry.h"
+#include <cmark-gfm.h>
+#include <cmark-gfm-core-extensions.h>
+#include <cmark-gfm-extension_api.h>
 
 static ngx_command_t  ngx_http_cmark_commands[] = {
 
