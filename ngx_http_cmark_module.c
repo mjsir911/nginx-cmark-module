@@ -96,13 +96,13 @@ static ngx_int_t ngx_http_cmark_handler(ngx_http_request_t *r) {
 
     if (cf == NULL) {
 
-        ngx_log_error(NGX_ERROR_ALERT, r->connection->log, 0, "ngx_http_get_module_loc_conf failed!");
+        // ngx_log_error(NGX_ERROR_ALERT, r->connection->log, 0, "ngx_http_get_module_loc_conf failed!");
         return NGX_DECLINED;
     }
 
     if (cf->enabled == NGX_CONF_UNSET || cf->enabled == 0) {
 
-        ngx_log_debug(NGX_ERROR_ALERT, r->connection->log, 0, "cmark is not enabled.");
+        // ngx_log_debug(NGX_ERROR_ALERT, r->connection->log, 0, "cmark is not enabled.");
         return NGX_DECLINED;
     }
 
