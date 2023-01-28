@@ -14,5 +14,5 @@ clean:
 	$(RM) ngx_http_cmark_module.so ngx_http_cmark_module.o
 
 nginx/objs/Makefile: nginx/auto/configure
-	cd nginx && ./auto/configure --add-dynamic-module=../module
+	cd nginx && ./auto/configure --add-dynamic-module=../
 
