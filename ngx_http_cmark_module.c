@@ -298,7 +298,7 @@ static ngx_int_t ngx_http_cmark_open_file(const ngx_str_t fn, ngx_file_t *f, ngx
     ngx_fd_t fd;
     ngx_int_t rc;
     ngx_file_info_t fi;
-    ngx_uint_t level;
+    // ngx_uint_t level;
 
     ngx_memzero(f, sizeof(ngx_file_t));
     fd = ngx_open_file(fn.data, NGX_FILE_RDONLY, NGX_FILE_OPEN, 0);
@@ -309,22 +309,22 @@ static ngx_int_t ngx_http_cmark_open_file(const ngx_str_t fn, ngx_file_t *f, ngx
 
         if (err == NGX_ENOENT) {
 
-            level = NGX_LOG_ERR;
+            // level = NGX_LOG_ERR;
             rc = NGX_HTTP_NOT_FOUND;
 
         } else {
 
-            level = NGX_LOG_CRIT;
+            // level = NGX_LOG_CRIT;
             rc = NGX_HTTP_INTERNAL_SERVER_ERROR;
         }
 
-        ngx_log_error(level, log, err, ngx_open_file_n " '%s' failed", fn.data);
+        // ngx_log_error(level, log, err, ngx_open_file_n " '%s' failed", fn.data);
         return rc;
     }
 
     if (ngx_fd_info(fd, &fi) == NGX_FILE_ERROR) {
 
-        ngx_log_error(NGX_LOG_CRIT, log, ngx_errno, ngx_fd_info_n " \"%s\" failed",fn.data);
+        // ngx_log_error(NGX_LOG_CRIT, log, ngx_errno, ngx_fd_info_n " \"%s\" failed",fn.data);
         return NGX_ERROR;
     }
 
